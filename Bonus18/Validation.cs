@@ -12,13 +12,68 @@ namespace Bonus18
         #region Methods
 
 
+        // Get Inventory List
+        public static void GetInventory(int NumCars, Car[] CarList)
+        {
+
+            Console.WriteLine("----------  Current Inventory  ----------\n");
+
+            for (int i = 0; i < NumCars; i++)
+            {
+
+                // Print Output for User Input/Inventory
+                Console.WriteLine($"{CarList[i].CarMake.Trim()}\t\t{CarList[i].CarModel.Trim()}\t\t{CarList[i].CarYear}\t\t{CarList[i].CarPrice.ToString("$#,#.00")}");
+            }
+        }
+
+
+
+        // Method to Get User Input
+        public static void GetInput(int NumCars, Car[] CarList)
+        {
+
+            for (int i = 0; i < NumCars; i++)
+            {
+
+                // CarMake Data
+                CarList[i] = new Car();
+                Console.WriteLine();
+                Console.Write($"Please Enter the Make of Car Number {i + 1}:   --->   ");
+                CarList[i].CarMake = Validation.GetValidString();
+                Console.WriteLine();
+
+
+                // Get CarModel Data
+                Console.Write($"Please Enter the Model of Car Number {i + 1}:   --->   ");
+                CarList[i].CarModel = Validation.GetValidString();
+                Console.WriteLine();
+
+
+                // Get CarYear Data
+                Console.Write($"Please Enter the Year of Car Number {i + 1}:   --->   ");
+                CarList[i].CarYear = Validation.GetRange(1886, 2018);
+                Console.WriteLine();
+
+
+                // Get CarPrice Data
+                Console.Write($"Please Enter the Price of Car Number {i + 1}:   --->   ");
+                CarList[i].CarPrice = Validation.GetDoubleWithinRange(0.0, 999999999999.99);
+                Console.WriteLine("\n");
+            }
+        }
+
+
+
+
+
+
         // Method to Get Valid String
         public static string GetValidString()
         {
             string Input = Console.ReadLine().ToUpper();
 
             // Validate Input
-            while ((string.IsNullOrEmpty(Input)) || (string.IsNullOrWhiteSpace(Input)))
+            while ((string.IsNullOrEmpty(Input)) || (string.IsNullOrWhiteSpace(Input) || (Input.Length == 0)))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine();
