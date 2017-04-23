@@ -89,7 +89,9 @@ namespace Bonus18
 
 
 
-
+        #region Input
+        
+        // Input
         public Car (string MakeInput,
             string ModelInput,
             int YearInput,
@@ -103,6 +105,8 @@ namespace Bonus18
 
         }
 
+
+        //Default Input
         public Car()
         {
             Make = "Jeep";
@@ -111,5 +115,7 @@ namespace Bonus18
             Price = 20000.02;
 
         }
+        #endregion
+
     }
 }
