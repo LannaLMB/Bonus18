@@ -30,8 +30,24 @@ namespace Bonus18
             int NumCars = Validation.GetRange(1, 5);
             Car[] CarList = new Car[NumCars];
             Validation.GetInput(NumCars, CarList);
-            Validation.GetInventory(NumCars, CarList);
+            GetInventory(NumCars, CarList);
 
+        }
+
+
+
+        // Method Get Inventory List
+        public static void GetInventory(int NumCars, Car[] CarList)
+        {
+
+            Console.WriteLine("----------  Current Inventory  ----------\n");
+
+            for (int i = 0; i < NumCars; i++)
+            {
+
+                // Print Output for User Input/Inventory
+                Console.WriteLine($"{CarList[i].CarMake.Trim()}\t\t{CarList[i].CarModel.Trim()}\t\t{CarList[i].CarYear}\t\t{CarList[i].CarPrice.ToString("$#,#.00")}");
+            }
         }
     }
 }
